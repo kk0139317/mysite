@@ -12,9 +12,9 @@ def sepia(input_img):
         alpha_channel = None
 
     sepia_filter = np.array([
-    [0.131, 0.534, 0.272],
-    [0.168, 0.686, 0.349],
-    [0.189, 0.769, 0.393]
+        [0.393, 0.769, 0.189], 
+        [0.349, 0.686, 0.168], 
+        [0.272, 0.534, 0.131]
     ])
     sepia_img = rgb_img.dot(sepia_filter.T)
     sepia_img = np.clip(sepia_img, 0, 255)
