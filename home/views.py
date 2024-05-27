@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 import numpy as np
 from PIL import Image
@@ -31,3 +31,6 @@ def apply_sepia(request):
             'sepia_file_url': sepia_file_url
         })
     return render(request, 'index.html')
+
+def index_page(request):
+    return redirect("apply_sepia/")

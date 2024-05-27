@@ -28,16 +28,16 @@
       </p>
     </div>
     <!-- End Header -->
-  
+    
     <!-- Drop Zoon -->
     <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
       <span class="drop-zoon__icon">
         <i class='bx bxs-file-image'></i>
       </span>
-      <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+      <p class="drop-zoon__paragraph" >Drop your file here or Click to browse</p>
       <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
-      <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
-      <input type="file" id="fileInput" name="image" class="drop-zoon__file-input" accept="image/*">
+      <img src="{{ uploaded_file_url }}" alt="Preview Image" id="previewImage"  class="drop-zoon__preview-image" draggable="false">
+      <input type="file" id="fileInput" name="image" value="{{ uploaded_file_url }}" class="drop-zoon__file-input" accept="image/*">
     </div>
     <!-- End Drop Zoon -->
   

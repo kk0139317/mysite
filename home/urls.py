@@ -10,6 +10,7 @@ from . import views
 
 urlpatterns = [
     path('apply_sepia/', views.apply_sepia, name='apply_sepia'),
+    path('', views.index_page, name='index_page'),
     # path('home', views.home, name="home"),
 ]
 
