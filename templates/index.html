@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepia Filter</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% comment %} <h1>Upload an image to apply Sepia Filter</h1> {% endcomment %}
+    <form method="post" enctype="multipart/form-data" id="myForm">
+        {% csrf_token %}
+        <!-- <input type="file" name="image" accept="image/png, image/gif, image/jpeg" / >
+        <button type="submit">Upload and Apply Sepia</button> -->
+
+        <!-- Upload Area -->
+<div id="uploadArea" class="upload-area">
+    <!-- Header -->
+    <div class="upload-area__header">
+      <h1 class="upload-area__title">Upload your file</h1>
+      <p class="upload-area__paragraph">
+        File should be an image
+        <strong class="upload-area__tooltip">
+          Like
+          <span class="upload-area__tooltip-data"></span> <!-- Data Will be Comes From Js -->
+        </strong>
+      </p>
+    </div>
+    <!-- End Header -->
+  
+    <!-- Drop Zoon -->
+    <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+      <span class="drop-zoon__icon">
+        <i class='bx bxs-file-image'></i>
+      </span>
+      <p class="drop-zoon__paragraph">Drop your file here or Click to browse</p>
+      <span id="loadingText" class="drop-zoon__loading-text">Please Wait</span>
+      <img src="" alt="Preview Image" id="previewImage" class="drop-zoon__preview-image" draggable="false">
+      <input type="file" id="fileInput" name="image" class="drop-zoon__file-input" accept="image/*">
+    </div>
+    <!-- End Drop Zoon -->
+  
+    <!-- File Details -->
+    <div id="fileDetails" class="upload-area__file-details file-details">
+      <h3 class="file-details__title">Uploaded File</h3>
+  
+      <div id="uploadedFile" class="uploaded-file">
+        <div class="uploaded-file__icon-container">
+          <i class='bx bxs-file-blank uploaded-file__icon'></i>
+          <span class="uploaded-file__icon-text"></span> <!-- Data Will be Comes From Js -->
+        </div>
+  
+        <div id="uploadedFileInfo" class="uploaded-file__info">
+          <span class="uploaded-file__name">Proejct 1</span>
+          <span class="uploaded-file__counter">0%</span>
+        </div>
+      </div>
+    </div>
+    <!-- End File Details -->
+  </div>
+  {% comment %} <button type="submit" >Upload and Apply Sepia</button> {% endcomment %}
+  <!-- End Upload Area -->
+    </form>
+    <div width="50px" height="30px" ></div>
+    {% if sepia_file_url %}
+    <div id=""  style="height:420px; margin-left:40px;"  class="upload-area">
+      <!-- Header -->
+      <div class="upload-area__header">
+        <h1 class="upload-area__title">Sepiya Image</h1>
+
+      </div>
+      <!-- End Header -->
+    
+      <!-- Drop Zoon -->
+      <a type="submit" download="{{ sepia_file_url }}" href="{{ sepia_file_url }}" class="btn btn-primary"> 
+      <div id="dropZoon" class="upload-area__drop-zoon drop-zoon">
+
+        <img src="{{ sepia_file_url }}" alt="Preview Image" id="previewImage" height="100%" download>
+          {% comment %} Download Image {% endcomment %}
+          {% comment %} <input type="file" id="fileInput" name="image" class="drop-zoon__file-input" accept="image/*"> {% endcomment %}
+        </div>
+      </a>
+    </div>
+    {% endif %}
+
+    {% comment %} {% if uploaded_file_url %}
+        <h2>Original Image</h2>
+        <img src="{{ uploaded_file_url }}" alt="Original Image">
+    {% endif %}
+
+    {% if sepia_file_url %}
+        <h2>Sepia Image</h2>
+        <img src="{{ sepia_file_url }}" alt="Sepia Image">
+    {% endif %} {% endcomment %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
