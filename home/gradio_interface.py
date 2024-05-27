@@ -11,6 +11,6 @@ def sepia(input_img):
     sepia_img /= sepia_img.max()
     return sepia_img
 
-demo = gr.Interface(sepia, gr.Image(), "Designer.png")
-# def start_gradio():
-#     demo.launch(server_name="0.0.0.0", server_port=7860, share=True)
+demo = gr.Interface(sepia, gr.Image(), 'image')
+def start_gradio():
+    demo.launch( share=True)
